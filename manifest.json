@@ -3,8 +3,8 @@
   "short_name": "MytStarTone翻译",
   "display": "standalone",
   "start_url": "/",
-  "theme_color": "#8888ff",
-  "background_color": "#aaaaff",
+  "theme_color": "#252427",
+  "background_color": "#252427",
   "icons": [
     {
       "src": "favicon.png",
