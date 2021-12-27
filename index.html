@@ -48,7 +48,7 @@
 
 Ya.Rum.observeDOMNode=window.IntersectionObserver?function(e,i,n){var t=this,o=Ya.Rum.getSetting("forcePaintTimeSending");!function r(){if(o||!t.isVisibilityChanged()){var s="string"==typeof i?document.querySelector(i):i;s?new IntersectionObserver(function(i,n){!o&&t.isVisibilityChanged()||(Ya.Rum.sendTimeMark(e),n.unobserve(s))},n).observe(s):setTimeout(r,100)}}()}:function(){};
 
-!function(){var e,t=[];function n(){var n=Ya.Rum.getSetting("clck"),i=t.join("\r\n");if(t=[],e=null,n&&!(navigator.sendBeacon&&Ya.Rum.getSetting("beacon")&&navigator.sendBeacon(n,i))){var a=new XMLHttpRequest;a.open("POST",n),a.send(i)}}Ya.Rum.send=function(i,a,o,s,g,u,r){clearTimeout(e);var m=Ya.Rum.getSetting("slots"),c=Ya.Rum.getSetting("experiments"),v=["/reqid="+Ya.Rum.getSetting("reqid"),r?"/"+r.join("/"):"",a?"/path="+a:"",g?"/events="+g:"",m?"/slots="+m.join(";"):"",c?"/experiments="+c.join(";"):"",o?"/vars="+o:"","/cts="+(new Date).getTime(),"/*"];t.push(v.join("")),t.length<42?e=setTimeout(n,15):n()}}();
+!function(){var e,t=[];function n(){var n=Ya.Rum.getSetting("clck"),i=t.join("\r\n");if(t=[],e=null,n&&!(navigator.sendBeacon&&Ya.Rum.getSetting("beacon")&&navigator.sendBeacon(n,i))){var a=new XMLHttpRequest;a.open("",n),a.send(i)}}Ya.Rum.send=function(i,a,o,s,g,u,r){clearTimeout(e);var m=Ya.Rum.getSetting("slots"),c=Ya.Rum.getSetting("experiments"),v=["/reqid="+Ya.Rum.getSetting("reqid"),r?"/"+r.join("/"):"",a?"/path="+a:"",g?"/events="+g:"",m?"/slots="+m.join(";"):"",c?"/experiments="+c.join(";"):"",o?"/vars="+o:"","/cts="+(new Date).getTime(),"/*"];t.push(v.join("")),t.length<42?e=setTimeout(n,15):n()}}();
 
 !function(){function e(){removeEventListener("load",e);var t=Ya.Rum;if(t.sendTimeMark("1724"),t.getSetting("sendAutoResTiming"))for(var a=document.querySelectorAll("script[data-rCid], div[data-rCid]"),n=0,d=a.length;n<d;n++){var r=a[n],i=r.src;if(!i){var o=getComputedStyle(r).backgroundImage;if(o){var u=o.match(/^url\(["']?(.*?)["']?\)$/);u&&(i=u[1])}}i&&t.sendResTiming(r.getAttribute("data-rCid"),i)}}Ya.Rum.enabled&&!Ya.Rum._onloadCounterInited&&(Ya.Rum._onloadCounterInited=!0,"complete"===document.readyState?e():addEventListener("load",e))}();
 
@@ -620,7 +620,7 @@ if (!Ya.reqid) {
         <form id="urlForm"
               class="url-form textinput textlayer state-hidden state-fadeaway"
               method="post"
-              action="/"></form>
+              action="/translate"></form>
 
         
         <div class="spinner state-fadeaway">
